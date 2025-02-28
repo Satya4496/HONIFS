@@ -1,0 +1,23 @@
+﻿{
+  "applications": {
+    "HONIFS.HttpApi.Host": {
+      "type": "dotnet-project",
+      "launchUrl": "https://localhost:44350",
+      "path": "../../../src/HONIFS.HttpApi.Host/HONIFS.HttpApi.Host.csproj",
+      "kubernetesService": ".*-httpapihost$",
+      "execution": {
+        "order": 4
+      }
+    },
+    "HONIFS.Angular": {
+      "type": "cli",
+      "workingDirectory": "../../../angular",
+      "startCommand": "./start.ps1",
+      "launchUrl": "http://localhost:4200",
+      "kubernetesService": ".*-angular$",
+      "execution": {
+        "order": 2
+      }    
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "template": "app",
+  "imports": {
+    "Volo.Abp.LeptonXTheme": {
+      "version": "4.0.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.TextTemplateManagement": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict.Pro": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.Gdpr": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.AuditLogging.Pro": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Saas": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.Identity.Pro": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.Account.Pro": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.0.4",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.0.4",
+      "isInstalled": true
+    }
+  },
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "HONIFS.Application": {
+      "path": "src/HONIFS.Application/HONIFS.Application.abppkg",
+      "folder": "src"
+    },
+    "HONIFS.Application.Tests": {
+      "path": "test/HONIFS.Application.Tests/HONIFS.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "HONIFS.Domain.Shared": {
+      "path": "src/HONIFS.Domain.Shared/HONIFS.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "HONIFS.Application.Contracts": {
+      "path": "src/HONIFS.Application.Contracts/HONIFS.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "HONIFS.HttpApi": {
+      "path": "src/HONIFS.HttpApi/HONIFS.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "HONIFS.HttpApi.Client": {
+      "path": "src/HONIFS.HttpApi.Client/HONIFS.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "HONIFS.EntityFrameworkCore.Tests": {
+      "path": "test/HONIFS.EntityFrameworkCore.Tests/HONIFS.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "HONIFS.EntityFrameworkCore": {
+      "path": "src/HONIFS.EntityFrameworkCore/HONIFS.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "HONIFS.TestBase": {
+      "path": "test/HONIFS.TestBase/HONIFS.TestBase.abppkg",
+      "folder": "test"
+    },
+    "HONIFS.Domain.Tests": {
+      "path": "test/HONIFS.Domain.Tests/HONIFS.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "HONIFS.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/HONIFS.HttpApi.Client.ConsoleTestApp/HONIFS.HttpApi.Client.ConsoleTestApp.abppkg",
+      "folder": "test"
+    },
+    "HONIFS.DbMigrator": {
+      "path": "src/HONIFS.DbMigrator/HONIFS.DbMigrator.abppkg",
+      "folder": "src"
+    },
+    "HONIFS.HttpApi.Host": {
+      "path": "src/HONIFS.HttpApi.Host/HONIFS.HttpApi.Host.abppkg",
+      "folder": "src"
+    },
+    "HONIFS.Domain": {
+      "path": "src/HONIFS.Domain/HONIFS.Domain.abppkg",
+      "folder": "src"
+    }
+  }
+}

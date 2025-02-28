@@ -1,0 +1,25 @@
+<div class="header">
+    <img src="assets/images/logo/Honeywell.png" alt="Company Logo" class="company-logo" />
+    <div class="align-right">
+      <button (click)="navigateToLogin()">Register</button>
+      <button (click)="navigateToRegister()">Register</button>
+    </div>
+  </div>
+  
+<div class="no-sidebar-layout">
+    <div class="content-wrapper">
+        <div class="offerings-container">
+            <h2>Our Offerings</h2>
+          
+            <!-- Displaying offerings in a simple grid -->
+            <div class="offerings-grid">
+              <div *ngFor="let offering of offerings" class="offering-card">
+                <h3>{{ offering.name }}</h3>
+                <p>{{ offering.description }}</p>
+                
+              </div>
+            </div>
+          </div>
+          
+    </div>
+  </div>

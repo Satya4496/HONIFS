@@ -1,0 +1,25 @@
+{
+  "production": true,
+  "application": {
+    "baseUrl":"http://localhost:4200",
+    "name": "HONIFS",
+    "logoUrl": ""
+  },
+  "oAuthConfig": {
+    "issuer": "https://localhost:44350/",
+    "redirectUri": "http://localhost:4200",
+    "clientId": "HONIFS_App",
+    "responseType": "code",
+    "scope": "offline_access openid profile email phone HONIFS"
+  },
+  "apis": {
+    "default": {
+      "url": "https://localhost:44350",
+      "rootNamespace": "HONIFS"
+    },
+    "AbpAccountPublic": {
+      "url": "https://localhost:44350",
+      "rootNamespace": "AbpAccountPublic"
+    }
+  }
+}

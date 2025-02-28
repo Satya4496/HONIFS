@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-configmap
+data:
+  dynamic-env.json: |-
+    {
+        "production": "true",
+        "application": {
+            "baseUrl": "{{ include "honifs.hosts.angular" . }}",
+            "name": "HONIFS",
+            "logoUrl": ""
+        },
+        "oAuthConfig": {
+            "issuer": "{{ include "honifs.hosts.httpapi" . }}",
+            "redirectUri": "{{ include "honifs.hosts.angular" . }}",
+            "requireHttps": "true",
+            "clientId": "HONIFS_App",
+            "responseType": "code",
+            "scope": "offline_access HONIFS",
+            "strictDiscoveryDocumentValidation": false,
+            "skipIssuerCheck": true
+        },
+        "apis": {
+            "default": {
+                "url": "{{ include "honifs.hosts.httpapi" . }}",
+                "rootNamespace": "HONIFS"
+            }
+        }
+    }

@@ -1,0 +1,4 @@
+image:
+  repository: "honifs/httpapihost"
+  tag: "latest"
+  pullPolicy: IfNotPresent

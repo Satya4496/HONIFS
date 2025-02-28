@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "include": ["**/*.ts", "**/*.tsx", "babel.config.js"],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@h-oNIFS/models": ["models/index.ts"]
+    }
+  }
+}
