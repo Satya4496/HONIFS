@@ -1,3 +1,4 @@
+using HONIFS.Leads;
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Uow;
@@ -48,9 +49,11 @@ public class HONIFSEntityFrameworkCoreModule : AbpModule
     {
         context.Services.AddAbpDbContext<HONIFSDbContext>(options =>
         {
-                /* Remove "includeAllEntities: true" to create
-                 * default repositories only for aggregate roots */
+            /* Remove "includeAllEntities: true" to create
+             * default repositories only for aggregate roots */
             options.AddDefaultRepositories(includeAllEntities: true);
+            options.AddRepository<Lead, Leads.EfCoreLeadRepository>();
+
         });
 
         if (AbpStudioAnalyzeHelper.IsInAnalyzeMode)
@@ -66,6 +69,6 @@ public class HONIFSEntityFrameworkCoreModule : AbpModule
             options.UseSqlServer();
 
         });
-        
+
     }
 }
