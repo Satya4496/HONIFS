@@ -31,7 +31,7 @@ public static class HONIFSModuleExtensionConfigurator
                             "TenantType", // ✅ Ensure key is "TenantType" (not "tenant Type")
                             property =>
                             {
-                                property.Attributes.Add(new TenantTypeValidationAttribute());
+                                property.Attributes.Add(new RequiredAttribute());
                             }
                         );
                     });
