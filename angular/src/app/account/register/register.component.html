@@ -1,49 +1,275 @@
 <!-- register.component.html -->
-<form (ngSubmit)="onRegister()" #registrationForm="ngForm">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input
-        type="text"
-        id="username"
-        [(ngModel)]="model.userName"
-        name="userName"
-        class="form-control"
-        required
-      />
+<div class="container-fluid p-0" style="overflow-x: hidden">
+  <div class="header">
+    <img src="assets/images/logo/Honeywell.png" alt="Company Logo" class="company-logo" />
+  </div>
+  <div class="lpx-login-area">
+    <div class="lpx-login-bg custom-login-bg">
+      <div class="d-flex flex-column justify-content-center min-vh-100">
+        <div class="row">
+          <div class="col-xxl-5 col-lg-7 col-md-8 col-11 mx-auto position-relative py-card">
+            <!-- <div class="lpx-logo-container lpx-login-brand-text">
+              <div class="lpx-brand-logo lpx-login-logo mx-auto"></div>
+              <div class="lpx-brand-name lpx-login-name mx-auto">Honeywell</div>
+            </div> -->
+
+            <div class="card mx-auto" style="max-width: 30rem">
+              <div class="card-body p-3 p-sm-4">
+                <div class="align-items-start d-flex justify-content-between mb-2">
+                  <h2 class="lpx-main-title lpx-login-title m-0 me-auto">Register</h2>
+                </div>
+
+                <div class="account-module-form">
+                  <!-- <h5 class="mb-2">Already registered? <a class="text-decoration-none" href="/Account/Login?returnUrl=%2Fconnect%2Fauthorize%3Fresponse_type%3Dcode%26client_id%3DHONIFS_App%26state%3DV2QzLmtxdjBUYVRmUkcxSVExMlZRLUdfQzdfSUxPLXU0WS5MbDZad2Z1eWdZ%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A4200%26scope%3Dopenid%2520offline_access%2520HONIFS%26code_challenge%3Dr2QQJRZII4W3R3y06vvGYii9I_7ZTI1wyb6TTiz41iE%26code_challenge_method%3DS256%26nonce%3DV2QzLmtxdjBUYVRmUkcxSVExMlZRLUdfQzdfSUxPLXU0WS5MbDZad2Z1eWdZ%26culture%3Den%26ui-culture%3Den">Login</a></h5> -->
+
+            
+                  <form
+                    method="post"
+                    id="registerForm"
+                    novalidate="novalidate"
+                    (ngSubmit)="onRegister()"
+                    #registerForm="ngForm"
+                  >
+                    <!-- First Name Field -->
+                    <div class="form-row">
+                      <div class="form-floating mb-2 ele-left">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="John"
+                          auto-focus="true"
+                          data-val="true"
+                          data-val-length="The field User name must be a string with a maximum length of 256."
+                          data-val-length-max="256"
+                          data-val-required="The First name field is required."
+                          id="Input_FirstName"
+                          maxlength="256"
+                          name="Input.FirstName"
+                          value=""
+                          [(ngModel)]="model.firstName"
+                          #firstName="ngModel"
+                          required
+                        />
+                        <label for="Input_FirstName">First Name</label>
+                        <span *ngIf="firstName.invalid && firstName.touched" class="text-danger">
+                          First name is required.
+                        </span>
+                      </div>
+
+                      <!-- Last Name Field -->
+                      <div class="form-floating mb-2 ele-right">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Doe"
+                          auto-focus="true"
+                          data-val="true"
+                          data-val-length="The field Last name must be a string with a maximum length of 256."
+                          data-val-length-max="256"
+                          data-val-required="The Last name field is required."
+                          id="Input_LastName"
+                          maxlength="256"
+                          name="Input.LastName"
+                          value=""
+                          [(ngModel)]="model.lastName"
+                          #lastName="ngModel"
+                          required
+                        />
+                        <label for="Input_LastName">Last Name</label>
+                        <span *ngIf="lastName.invalid && lastName.touched" class="text-danger">
+                          Last name is required.
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-floating mb-2">
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="name@example.com"
+                        auto-focus="true"
+                        data-val="true"
+                        data-val-email="The Email address field is not a valid e-mail address."
+                        data-val-length="The field Email address must be a string with a maximum length of 256."
+                        data-val-length-max="256"
+                        data-val-required="The Email address field is required."
+                        id="Input_EmailAddress"
+                        maxlength="256"
+                        name="Input.EmailAddress"
+                        value=""
+                        [(ngModel)]="model.email"
+                        #email="ngModel"
+                        required
+                      />
+                      <label for="Input_EmailAddress">Email address</label>
+                      <span *ngIf="email.invalid && email.touched" class="text-danger">
+                        Email is required and must be a valid email address.
+                      </span>
+                    </div>
+
+                    <!-- Tenant Name Field -->
+                    <div class="form-row">
+                      <div class="form-floating mb-2 ele-left" style="flex: 1 1 0">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="ABC Services"
+                          auto-focus="true"
+                          data-val="true"
+                          data-val-length="The field Tenant Name must be a string with a maximum length of 256."
+                          data-val-length-max="256"
+                          data-val-required="The Tenant Name field is required."
+                          id="Input_TenantName"
+                          maxlength="256"
+                          name="Input.TenantName"
+                          value=""
+                          [(ngModel)]="model.tenantName"
+                          #tenantName="ngModel"
+                          required
+                        />
+                        <label for="Input_TenantName">Tenant Name</label>
+                        <span *ngIf="tenantName.invalid && tenantName.touched" class="text-danger">
+                          Tenant Name is required.
+                        </span>
+                      </div>
+
+                      <!-- Tenant Type Dropdown -->
+                      <div class="form-floating mb-2 ele-right" style="flex: 1.5 1 0">
+                        <select
+                          class="form-control"
+                          id="Input_TenantType"
+                          name="Input.TenantType"
+                          [(ngModel)]="model.tenantType"
+                          #tenantType="ngModel"
+                          data-val="true"
+                          data-val-required="The Tenant Type field is required."
+                          required
+                        >
+                          <option value="">--Select Tenant Type--</option>
+                          <option *ngFor="let tenantType of tenantTypes" [value]="tenantType">
+                            {{ tenantType }}
+                          </option>
+                        </select>
+                        <label for="Input_TenantType">Tenant Type</label>
+                        <span *ngIf="tenantType.invalid && tenantType.touched" class="text-danger">
+                          Tenant Type is required.
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- Address Field -->
+                    <div class="form-floating mb-2">
+                      <textarea
+                        class="form-control"
+                        placeholder="address"
+                        auto-focus="true"
+                        data-val="true"
+                        data-val-length="The field Email address must be a string with a maximum length of 512."
+                        data-val-length-max="512"
+                        data-val-required="The address field is required."
+                        id="Input_Address"
+                        maxlength="256"
+                        name="Input.Address"
+                        value=""
+                        [(ngModel)]="model.address"
+                        #address="ngModel"
+                        required
+                      ></textarea>
+                      <label for="Input_Address">Address</label>
+                      <span *ngIf="address.invalid && address.touched" class="text-danger">
+                        Address is required.
+                      </span>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-floating mb-2">
+                      <input
+                        id="password-input"
+                        type="password"
+                        class="form-control"
+                        placeholder="Password"
+                        data-val="true"
+                        data-val-length="The field Password must be a string with a maximum length of 128."
+                        data-val-length-max="128"
+                        data-val-required="The Password field is required."
+                        maxlength="128"
+                        name="Input.Password"
+                        [(ngModel)]="model.password"
+                        #password="ngModel"
+                        required
+                      />
+                      <label for="Input_Password">Password</label>
+                      <span *ngIf="password.invalid && password.touched" class="text-danger">
+                        Password is required.
+                      </span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid gap-2">
+                      <button
+                        type="submit"
+                        class="mt-2 mb-3 btn btn-primary"
+                        data-busy-text="Processing..."
+                        [disabled]="registerForm.invalid"
+                      >
+                        Register
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        [(ngModel)]="model.email"
-        name="email"
-        class="form-control"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        [(ngModel)]="model.password"
-        name="password"
-        class="form-control"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="confirmPassword">Confirm Password</label>
-      <input
-        type="password"
-        id="confirmPassword"
-        [(ngModel)]="model.confirmPassword"
-        name="confirmPassword"
-        class="form-control"
-        required
-      />
-    </div>
-    <button type="submit" class="btn btn-primary">Register</button>
-  </form>
-  
+  </div>
+</div>
+<!-- <form (ngSubmit)="onRegister()" #registrationForm="ngForm">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      [(ngModel)]="model.userName"
+      name="userName"
+      class="form-control"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      [(ngModel)]="model.email"
+      name="email"
+      class="form-control"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      [(ngModel)]="model.password"
+      name="password"
+      class="form-control"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input
+      type="password"
+      id="confirmPassword"
+      [(ngModel)]="model.confirmPassword"
+      name="confirmPassword"
+      class="form-control"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form> -->

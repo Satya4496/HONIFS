@@ -1,0 +1,41 @@
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ele-left {
+  margin-right: 0.75rem;
+}
+
+.ele-right {
+  margin-left: 0.75rem;
+}
+
+.lpx-login-area .custom-login-bg {
+  max-height: 50vh;
+  min-height: 10vh;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  background-color: #fff; /* Choose a color based on your branding */
+  padding: 10px 20px;
+}
+.company-logo {
+  height: 40px; /* Adjust the size of your logo */
+  width: auto;
+}
+.custom-login-bg {
+    background-image: url('../../../assets/images/firefighter-fire-portrait-training.jpg');
+}
+.py-card{
+    padding-top: 9.25rem !important;
+    padding-bottom: 2.25rem !important;
+}
+.lpx-login-area {
+    min-height: calc(100vh - 75px);
+}
