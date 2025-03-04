@@ -10,9 +10,8 @@ const routes: Routes = [
     pathMatch: 'full',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
     data: {
-      layout: 'default'  // Optional: Add a layout flag in route data
-    }
-    
+      layout: 'default', // Optional: Add a layout flag in route data
+    },
   },
 
   {
@@ -23,15 +22,15 @@ const routes: Routes = [
     path: 'landing-page',
     component: LandingPageComponent,
     data: {
-      layout: 'no-sidebar'  // Optional: Add a layout flag in route data
-    }
+      layout: 'no-sidebar', // Optional: Add a layout flag in route data
+    },
   },
   {
     path: 'account/registration',
     component: RegisterComponent,
     data: {
-      layout: 'no-sidebar'  // Optional: Add a layout flag in route data
-    }
+      layout: 'no-sidebar', // Optional: Add a layout flag in route data
+    },
   },
   {
     path: 'dashboard',
@@ -74,14 +73,14 @@ const routes: Routes = [
     path: 'text-template-management',
     loadChildren: () =>
       import('@volo/abp.ng.text-template-management').then(m =>
-        m.TextTemplateManagementModule.forLazy()
+        m.TextTemplateManagementModule.forLazy(),
       ),
   },
   {
     path: 'gdpr-cookie-consent',
     loadChildren: () =>
       import('./gdpr-cookie-consent/gdpr-cookie-consent.module').then(
-        m => m.GdprCookieConsentModule
+        m => m.GdprCookieConsentModule,
       ),
   },
   {
@@ -89,6 +88,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('@abp/ng.setting-management').then(m => m.SettingManagementModule.forLazy()),
   },
+  { path: 'leads', loadChildren: () => import('./leads/lead/lead.module').then(m => m.LeadModule) },
 ];
 
 @NgModule({

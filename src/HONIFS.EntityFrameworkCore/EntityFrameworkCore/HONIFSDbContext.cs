@@ -1,3 +1,4 @@
+using HONIFS.Leads;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -29,8 +30,8 @@ public class HONIFSDbContext :
     ISaasDbContext,
     IIdentityProDbContext
 {
+    public DbSet<Lead> Leads { get; set; } = null!;
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
-
 
     #region Entities from the modules
 
@@ -86,7 +87,7 @@ public class HONIFSDbContext :
         builder.ConfigureTextTemplateManagement();
         builder.ConfigureGdpr();
         builder.ConfigureBlobStoring();
-        
+
         /* Configure your own tables/entities inside here */
 
         //builder.Entity<YourEntity>(b =>
@@ -95,5 +96,22 @@ public class HONIFSDbContext :
         //    b.ConfigureByConvention(); //auto configure for the base class props
         //    //...
         //});
+        if (builder.IsHostDatabase())
+        {
+            builder.Entity<Lead>(b =>
+            {
+                b.ToTable(HONIFSConsts.DbTablePrefix + "Leads", HONIFSConsts.DbSchema);
+                b.ConfigureByConvention();
+                b.Property(x => x.FirstName).HasColumnName(nameof(Lead.FirstName)).IsRequired();
+                b.Property(x => x.LastName).HasColumnName(nameof(Lead.LastName)).IsRequired();
+                b.Property(x => x.UserName).HasColumnName(nameof(Lead.UserName)).IsRequired();
+                b.Property(x => x.Email).HasColumnName(nameof(Lead.Email)).IsRequired();
+                b.Property(x => x.Contact).HasColumnName(nameof(Lead.Contact)).IsRequired();
+                b.Property(x => x.Address).HasColumnName(nameof(Lead.Address));
+                b.Property(x => x.TenantName).HasColumnName(nameof(Lead.TenantName)).IsRequired();
+                b.Property(x => x.Type).HasColumnName(nameof(Lead.Type));
+            });
+
+        }
     }
 }

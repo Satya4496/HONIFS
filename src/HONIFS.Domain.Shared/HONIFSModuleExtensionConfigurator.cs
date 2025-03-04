@@ -20,19 +20,23 @@ public static class HONIFSModuleExtensionConfigurator
 
     private static void ConfigureExistingProperties()
     {
-        /* You can change max lengths for properties of the
-         * entities defined in the modules used by your application.
-         *
-         * Example: Change user and role name max lengths
-
-           AbpUserConsts.MaxNameLength = 99;
-           IdentityRoleConsts.MaxNameLength = 99;
-
-         * Notice: It is not suggested to change property lengths
-         * unless you really need it. Go with the standard values wherever possible.
-         *
-         * If you are using EF Core, you will need to run the add-migration command after your changes.
-         */
+        OneTimeRunner.Run(() =>
+        {
+            ObjectExtensionManager.Instance.Modules()
+                .ConfigureSaas(saas =>
+                {
+                    saas.ConfigureTenant(tenant =>
+                    {
+                        tenant.AddOrUpdateProperty<TenantType>(
+                            "TenantType", // ✅ Ensure key is "TenantType" (not "tenant Type")
+                            property =>
+                            {
+                                property.Attributes.Add(new RequiredAttribute());
+                            }
+                        );
+                    });
+                });
+        });
     }
 
     private static void ConfigureExtraProperties()

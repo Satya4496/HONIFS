@@ -16,6 +16,11 @@ public class HONIFSPermissionDefinitionProvider : PermissionDefinitionProvider
 
         //Define your own permissions here. Example:
         //myGroup.AddPermission(HONIFSPermissions.MyPermission1, L("Permission:MyPermission1"));
+
+        var leadPermission = myGroup.AddPermission(HONIFSPermissions.Leads.Default, L("Permission:Leads"));
+        leadPermission.AddChild(HONIFSPermissions.Leads.Create, L("Permission:Create"));
+        leadPermission.AddChild(HONIFSPermissions.Leads.Edit, L("Permission:Edit"));
+        leadPermission.AddChild(HONIFSPermissions.Leads.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

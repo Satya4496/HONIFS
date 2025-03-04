@@ -2,13 +2,28 @@ import { CoreModule, provideAbpCore, withOptions } from '@abp/ng.core';
 import { provideAbpOAuth } from '@abp/ng.oauth';
 import { provideSettingManagementConfig } from '@abp/ng.setting-management/config';
 import { provideFeatureManagementConfig } from '@abp/ng.feature-management';
-import { ThemeSharedModule, provideAbpThemeShared,withValidationBluePrint,withHttpErrorConfig} from '@abp/ng.theme.shared';
+import {
+  ThemeSharedModule,
+  provideAbpThemeShared,
+  withValidationBluePrint,
+  withHttpErrorConfig,
+} from '@abp/ng.theme.shared';
 import { IdentityConfigModule, provideIdentityConfig } from '@volo/abp.ng.identity/config';
 import { provideCommercialUiConfig } from '@volo/abp.commercial.ng.ui/config';
-import { AccountAdminConfigModule, provideAccountAdminConfig } from '@volo/abp.ng.account/admin/config';
+import {
+  AccountAdminConfigModule,
+  provideAccountAdminConfig,
+} from '@volo/abp.ng.account/admin/config';
 import { provideAccountPublicConfig } from '@volo/abp.ng.account/public/config';
-import { GdprConfigModule, provideGdprConfig, withCookieConsentOptions } from '@volo/abp.ng.gdpr/config';
-import { AuditLoggingConfigModule, provideAuditLoggingConfig } from '@volo/abp.ng.audit-logging/config';
+import {
+  GdprConfigModule,
+  provideGdprConfig,
+  withCookieConsentOptions,
+} from '@volo/abp.ng.gdpr/config';
+import {
+  AuditLoggingConfigModule,
+  provideAuditLoggingConfig,
+} from '@volo/abp.ng.audit-logging/config';
 import { provideLanguageManagementConfig } from '@volo/abp.ng.language-management/config';
 import { registerLocale } from '@volo/abp.ng.language-management/locale';
 import { provideSaasConfig } from '@volo/abp.ng.saas/config';
@@ -27,14 +42,11 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NoSidebarLayoutComponent } from './shared/layouts/no-sidebar-layout/no-sidebar-layout.component';
 import { RegisterComponent } from './account/register/register.component';
 import { APP_ROUTE_PROVIDER } from './route.provider';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { LEADS_LEAD_ROUTE_PROVIDER } from './leads/lead/providers/lead-route.provider';
 
 @NgModule({
-  declarations: [AppComponent, 
-    LandingPageComponent,
-    NoSidebarLayoutComponent,
-    RegisterComponent
-  ],
+  declarations: [AppComponent, LandingPageComponent, NoSidebarLayoutComponent, RegisterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -48,7 +60,7 @@ import { FormsModule } from '@angular/forms';
     ThemeLeptonXModule.forRoot(),
     SideMenuLayoutModule.forRoot(),
     AccountLayoutModule.forRoot(),
-    FormsModule
+    FormsModule,
   ],
   providers: [
     APP_ROUTE_PROVIDER,
@@ -88,6 +100,7 @@ import { FormsModule } from '@angular/forms';
     provideAuditLoggingConfig(),
     provideOpeniddictproConfig(),
     provideTextTemplateManagementConfig(),
+    LEADS_LEAD_ROUTE_PROVIDER,
   ],
   bootstrap: [AppComponent],
 })
