@@ -19,6 +19,7 @@ using Volo.Saas.EntityFrameworkCore;
 using Volo.Saas.Editions;
 using Volo.Saas.Tenants;
 using Volo.Abp.Gdpr;
+using HONIFS.OnBoardings;
 
 namespace HONIFS.EntityFrameworkCore;
 
@@ -61,6 +62,8 @@ public class HONIFSDbContext :
     public DbSet<Edition> Editions { get; set; }
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
 
+    public DbSet<OnBoarding> OnBoardings { get; set; }
+
     #endregion
 
     public HONIFSDbContext(DbContextOptions<HONIFSDbContext> options)
@@ -96,6 +99,11 @@ public class HONIFSDbContext :
         //    b.ConfigureByConvention(); //auto configure for the base class props
         //    //...
         //});
+
+        builder.Entity<OnBoarding>(b =>
+        {
+            b.ToTable("OnBoardings");
+        });
         if (builder.IsHostDatabase())
         {
             builder.Entity<Lead>(b =>
