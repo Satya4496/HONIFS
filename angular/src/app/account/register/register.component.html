@@ -8,10 +8,12 @@
       <div class="d-flex flex-column justify-content-center min-vh-100">
         <div class="row">
           <div class="col-xxl-5 col-lg-7 col-md-8 col-11 mx-auto position-relative py-card">
-            <!-- <div class="lpx-logo-container lpx-login-brand-text">
+            <div class="lpx-logo-container lpx-login-brand-text">
               <div class="lpx-brand-logo lpx-login-logo mx-auto"></div>
-              <div class="lpx-brand-name lpx-login-name mx-auto">Honeywell</div>
-            </div> -->
+              <div class="lpx-brand-name lpx-login-name mx-auto">
+                {{ offeringName + ' Services' }}
+              </div>
+            </div>
 
             <div class="card mx-auto" style="max-width: 30rem">
               <div class="card-body p-3 p-sm-4">
@@ -22,7 +24,6 @@
                 <div class="account-module-form">
                   <!-- <h5 class="mb-2">Already registered? <a class="text-decoration-none" href="/Account/Login?returnUrl=%2Fconnect%2Fauthorize%3Fresponse_type%3Dcode%26client_id%3DHONIFS_App%26state%3DV2QzLmtxdjBUYVRmUkcxSVExMlZRLUdfQzdfSUxPLXU0WS5MbDZad2Z1eWdZ%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A4200%26scope%3Dopenid%2520offline_access%2520HONIFS%26code_challenge%3Dr2QQJRZII4W3R3y06vvGYii9I_7ZTI1wyb6TTiz41iE%26code_challenge_method%3DS256%26nonce%3DV2QzLmtxdjBUYVRmUkcxSVExMlZRLUdfQzdfSUxPLXU0WS5MbDZad2Z1eWdZ%26culture%3Den%26ui-culture%3Den">Login</a></h5> -->
 
-            
                   <form
                     method="post"
                     id="registerForm"
@@ -50,7 +51,7 @@
                           #firstName="ngModel"
                           required
                         />
-                        <label for="Input_FirstName">First Name</label>
+                        <label for="Input_FirstName">First Name*</label>
                         <span *ngIf="firstName.invalid && firstName.touched" class="text-danger">
                           First name is required.
                         </span>
@@ -75,42 +76,15 @@
                           #lastName="ngModel"
                           required
                         />
-                        <label for="Input_LastName">Last Name</label>
+                        <label for="Input_LastName">Last Name*</label>
                         <span *ngIf="lastName.invalid && lastName.touched" class="text-danger">
                           Last name is required.
                         </span>
                       </div>
                     </div>
-
-                    <!-- Email Field -->
-                    <div class="form-floating mb-2">
-                      <input
-                        type="email"
-                        class="form-control"
-                        placeholder="name@example.com"
-                        auto-focus="true"
-                        data-val="true"
-                        data-val-email="The Email address field is not a valid e-mail address."
-                        data-val-length="The field Email address must be a string with a maximum length of 256."
-                        data-val-length-max="256"
-                        data-val-required="The Email address field is required."
-                        id="Input_EmailAddress"
-                        maxlength="256"
-                        name="Input.EmailAddress"
-                        value=""
-                        [(ngModel)]="model.email"
-                        #email="ngModel"
-                        required
-                      />
-                      <label for="Input_EmailAddress">Email address</label>
-                      <span *ngIf="email.invalid && email.touched" class="text-danger">
-                        Email is required and must be a valid email address.
-                      </span>
-                    </div>
-
                     <!-- Tenant Name Field -->
                     <div class="form-row">
-                      <div class="form-floating mb-2 ele-left" style="flex: 1 1 0">
+                      <div class="form-floating mb-2 ele-left">
                         <input
                           type="text"
                           class="form-control"
@@ -128,32 +102,110 @@
                           #tenantName="ngModel"
                           required
                         />
-                        <label for="Input_TenantName">Tenant Name</label>
+                        <label for="Input_TenantName">Tenant Name*</label>
                         <span *ngIf="tenantName.invalid && tenantName.touched" class="text-danger">
                           Tenant Name is required.
                         </span>
                       </div>
+                      <div class="form-floating mb-2 ele-right">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Username"
+                          auto-focus="true"
+                          data-val="true"
+                          data-val-length="The field User name must be a string with a maximum length of 256."
+                          data-val-length-max="256"
+                          data-val-required="The User name field is required."
+                          id="Input_UserName"
+                          maxlength="256"
+                          name="Input.UserName"
+                          value=""
+                          [(ngModel)]="model.userName"
+                          #userName="ngModel"
+                          required
+                        />
+                        <label for="Input_UserName">User Name*</label>
+                        <span *ngIf="userName.invalid && userName.touched" class="text-danger">
+                          User Name is required and must be a valid string with a maximum length of
+                          256 characters.
+                        </span>
+                      </div>
 
                       <!-- Tenant Type Dropdown -->
-                      <div class="form-floating mb-2 ele-right" style="flex: 1.5 1 0">
-                        <select
+                      <!-- <div class="form-floating mb-2 ele-right" style="flex: 1.5 1 0">
+    <select
+      class="form-control"
+      id="Input_TenantType"
+      name="Input.TenantType"
+      [(ngModel)]="model.tenantType"
+      #tenantType="ngModel"
+      data-val="true"
+      data-val-required="The Tenant Type field is required."
+      required
+    >
+      <option value="">--Select Tenant Type--</option>
+      <option *ngFor="let tenantType of tenantTypes" [value]="tenantType">
+        {{ tenantType }}
+      </option>
+    </select>
+    <label for="Input_TenantType">Tenant Type</label>
+    <span *ngIf="tenantType.invalid && tenantType.touched" class="text-danger">
+      Tenant Type is required.
+    </span>
+  </div> -->
+                    </div>
+                    <!-- Email Field -->
+                    <div class="form-row">
+                      <div class="form-floating mb-2 ele-left">
+                        <input
+                          type="email"
                           class="form-control"
-                          id="Input_TenantType"
-                          name="Input.TenantType"
-                          [(ngModel)]="model.tenantType"
-                          #tenantType="ngModel"
+                          placeholder="name@example.com"
+                          auto-focus="true"
                           data-val="true"
-                          data-val-required="The Tenant Type field is required."
+                          data-val-email="The Email address field is not a valid e-mail address."
+                          data-val-length="The field Email address must be a string with a maximum length of 256."
+                          data-val-length-max="256"
+                          data-val-required="The Email address field is required."
+                          id="Input_EmailAddress"
+                          maxlength="256"
+                          name="Input.EmailAddress"
+                          value=""
+                          [(ngModel)]="model.email"
+                          #email="ngModel"
                           required
+                        />
+                        <label for="Input_EmailAddress">Email address*</label>
+                        <span *ngIf="email.invalid && email.touched" class="text-danger">
+                          Email is required and must be a valid email address.
+                        </span>
+                      </div>
+                      <div class="form-floating mb-2 ele-right">
+                        <input
+                          type="tel"
+                          class="form-control"
+                          placeholder="123- 456-7890"
+                          auto-focus="true"
+                          data-val="true"
+                          data-val-length="The field Contact Number must be a string with a maximum length of 15."
+                          data-val-length-max="10"
+                          data-val-required="The Contact Number field is required."
+                          id="Input_ContactNumber"
+                          maxlength="10"
+                          name="Input.ContactNumber"
+                          value=""
+                          [(ngModel)]="model.contactNumber"
+                          #contactNumber="ngModel"
+                          required
+                        />
+                        <label for="Input_ContactNumber">Contact Number*</label>
+                        <span
+                          *ngIf="contactNumber.invalid && contactNumber.touched"
+                          class="text-danger"
                         >
-                          <option value="">--Select Tenant Type--</option>
-                          <option *ngFor="let tenantType of tenantTypes" [value]="tenantType">
-                            {{ tenantType }}
-                          </option>
-                        </select>
-                        <label for="Input_TenantType">Tenant Type</label>
-                        <span *ngIf="tenantType.invalid && tenantType.touched" class="text-danger">
-                          Tenant Type is required.
+                          Contact Number is required and must be a valid phone number (e.g., (123)
+                          456-7890).
                         </span>
                       </div>
                     </div>
@@ -183,7 +235,7 @@
                     </div>
 
                     <!-- Password Field -->
-                    <div class="form-floating mb-2">
+                    <!-- <div class="form-floating mb-2">
                       <input
                         id="password-input"
                         type="password"
@@ -203,7 +255,7 @@
                       <span *ngIf="password.invalid && password.touched" class="text-danger">
                         Password is required.
                       </span>
-                    </div>
+                    </div> -->
 
                     <!-- Submit Button -->
                     <div class="d-grid gap-2">

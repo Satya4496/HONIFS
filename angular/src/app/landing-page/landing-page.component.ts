@@ -12,19 +12,19 @@ export class LandingPageComponent {
   constructor(private router: Router) {}
    // Mock data for offerings
    offerings = [
-    { id: 1, name: 'Building Services', description: 'A basic offering with essential features' },
-    { id: 2, name: 'Department Services', description: 'A premium offering with additional features' }
+    { id: 1, name: 'Building Services', description: 'A basic offering with essential features',path: 'building' },
+    { id: 2, name: 'Department Services', description: 'A premium offering with additional features', path:'department' }
   ];
 
-  navigateToRegister(): void {
-    this.router.navigate(['/account/registration'], {
-      queryParams: { returnUrl: '' }  // Remove the returnUrl completely
+  navigateToRegister(offeringPath): void {
+    this.router.navigate([`${offeringPath}/account/registration`], {
+      queryParams: { returnUrl: '', offeringName: offeringPath }  // Remove the returnUrl completely
     });  // Default ABP registration URL
   }
 
   navigateToLogin(): void {
     this.router.navigate(['/account/login'], {
-      queryParams: { returnUrl: '' }  // Remove the returnUrl completely
+      queryParams: { returnUrl: '/home' }  // Remove the returnUrl completely
     });  // Default ABP registration URL
   }
 }

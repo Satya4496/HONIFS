@@ -10,6 +10,6 @@ export class AccountService {
   constructor(private http: HttpClient) {}
 
   register(registerDto: any): Observable<any> {
-    return this.http.post('/api/app/account/register', registerDto);
+    return this.http.post('/api/app/leads', registerDto);
   }
 }

@@ -21,7 +21,14 @@ function configureRoutes(routes: RoutesService) {
         iconClass: 'fas fa-chart-line',
         order: 2,
         layout: eLayoutType.application,
-        requiredPolicy: 'IntelliFireSystems.Dashboard.Host  || IntelliFireSystems.Dashboard.Tenant',
+        requiredPolicy: 'HONIFS.Dashboard.Host  || HONIFS.Dashboard.Tenant',
+      },
+      {
+        path: '/tenant-request',
+        name: '::Menu: Approve Tenant Requests',
+        iconClass: 'fas fa-chart-line',
+        order: 3,
+        layout: eLayoutType.application
       }
     ]);
   };

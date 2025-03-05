@@ -30,12 +30,16 @@
   width: auto;
 }
 .custom-login-bg {
-    background-image: url('../../../assets/images/firefighter-fire-portrait-training.jpg');
+  background-image: url('../../../assets/images/firefighter-fire-portrait-training.jpg');
 }
-.py-card{
-    padding-top: 9.25rem !important;
-    padding-bottom: 2.25rem !important;
+.py-card {
+  padding-top: 2.25rem !important;
+  padding-bottom: 2.25rem !important;
 }
 .lpx-login-area {
-    min-height: calc(100vh - 75px);
+  min-height: calc(100vh - 75px);
+}
+.lpx-brand-name {
+  color: white;
+  text-transform: capitalize;
 }

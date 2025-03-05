@@ -1,0 +1,19 @@
+<ngx-datatable
+  class="material"
+  [rows]="tableData"
+  [columns]="columns"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [limit]="10"
+>
+  <ngx-datatable-column *ngFor="let column of columns" [name]="column.name" [prop]="column.prop">
+  </ngx-datatable-column>
+
+  <!-- Add Actions column with a custom template outside the dynamic loop -->
+  <ngx-datatable-column *ngIf="showActionsColumn" name="Actions">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <button class="btn btn-primary" (click)="onButtonClick(row)">View Details</button>
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>

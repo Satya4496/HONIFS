@@ -44,9 +44,11 @@ import { RegisterComponent } from './account/register/register.component';
 import { APP_ROUTE_PROVIDER } from './route.provider';
 import { FormsModule } from '@angular/forms';
 import { LEADS_LEAD_ROUTE_PROVIDER } from './leads/lead/providers/lead-route.provider';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { AdminTenantRequestsComponent } from './admin-tenant-requests/admin-tenant-requests.component';
 
 @NgModule({
-  declarations: [AppComponent, LandingPageComponent, NoSidebarLayoutComponent, RegisterComponent],
+  declarations: [AppComponent, LandingPageComponent, NoSidebarLayoutComponent, RegisterComponent,AdminTenantRequestsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -61,6 +63,7 @@ import { LEADS_LEAD_ROUTE_PROVIDER } from './leads/lead/providers/lead-route.pro
     SideMenuLayoutModule.forRoot(),
     AccountLayoutModule.forRoot(),
     FormsModule,
+    NgxDatatableModule
   ],
   providers: [
     APP_ROUTE_PROVIDER,

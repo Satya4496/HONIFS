@@ -3,11 +3,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RegisterComponent } from './account/register/register.component';
+import { AdminTenantRequestsComponent } from './admin-tenant-requests/admin-tenant-requests.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
+    component: LandingPageComponent,
+    data: {
+      layout: 'no-sidebar', // Optional: Add a layout flag in route data
+    },
+  },
+  {
+    path: 'landing-page',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
     data: {
       layout: 'default', // Optional: Add a layout flag in route data
@@ -17,20 +25,28 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
-  },
-  {
-    path: 'landing-page',
-    component: LandingPageComponent,
     data: {
-      layout: 'no-sidebar', // Optional: Add a layout flag in route data
+      layout: 'default', // Optional: Add a layout flag in route data
     },
   },
+  
   {
-    path: 'account/registration',
+    path: 'building/account/registration',
     component: RegisterComponent,
     data: {
       layout: 'no-sidebar', // Optional: Add a layout flag in route data
     },
+  },
+  {
+    path: 'department/account/registration',
+    component: RegisterComponent,
+    data: {
+      layout: 'no-sidebar', // Optional: Add a layout flag in route data
+    },
+  },
+  {
+    path: 'tenant-request',
+    component: AdminTenantRequestsComponent,
   },
   {
     path: 'dashboard',
