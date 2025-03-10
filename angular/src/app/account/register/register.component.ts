@@ -16,10 +16,10 @@ export class RegisterComponent {
     lastName: '',
     userName: '',
     email: '',
-    contactNumber: '',
+    contact: '',
     address: '',
     tenantName: '',
-    tenantType: '',
+    type: '',
   };
 
   constructor(
@@ -43,10 +43,10 @@ export class RegisterComponent {
         lastName: this.model.lastName,
         userName: this.model.userName,
         email: this.model.email,
-        contactNumber: this.model.contactNumber,
+        contact: this.model.contactNumber,
         address: this.model.address,
         tenantName: this.model.tenantName,
-        tenantType: this.offeringName=='building' ? 1 : 2,
+        type: this.offeringName=='building' ? 1 : 2,
       })
       .subscribe(
         result => {

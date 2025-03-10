@@ -4,7 +4,7 @@ const baseUrl = 'http://localhost:4200';
 
 const oAuthConfig = {
   issuer: 'https://localhost:44350/',
-  redirectUri: baseUrl,
+  redirectUri: baseUrl+'/home',
   clientId: 'HONIFS_App',
   responseType: 'code',
   scope: 'offline_access HONIFS',

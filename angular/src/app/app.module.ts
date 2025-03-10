@@ -46,6 +46,8 @@ import { FormsModule } from '@angular/forms';
 import { LEADS_LEAD_ROUTE_PROVIDER } from './leads/lead/providers/lead-route.provider';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AdminTenantRequestsComponent } from './admin-tenant-requests/admin-tenant-requests.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent, LandingPageComponent, NoSidebarLayoutComponent, RegisterComponent,AdminTenantRequestsComponent],
@@ -71,7 +73,8 @@ import { AdminTenantRequestsComponent } from './admin-tenant-requests/admin-tena
       withOptions({
         environment,
         registerLocaleFn: registerLocale(),
-      }),
+      })
+      
     ),
     provideAbpOAuth(),
     provideIdentityConfig(),
@@ -104,6 +107,11 @@ import { AdminTenantRequestsComponent } from './admin-tenant-requests/admin-tena
     provideOpeniddictproConfig(),
     provideTextTemplateManagementConfig(),
     LEADS_LEAD_ROUTE_PROVIDER,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,  // Add the AuthInterceptor here
+      multi: true  // This allows you to add multiple interceptors
+    }
   ],
   bootstrap: [AppComponent],
 })

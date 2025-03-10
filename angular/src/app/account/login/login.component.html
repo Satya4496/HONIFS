@@ -1,0 +1,49 @@
+<section>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" validateOnSubmit>
+    <div className="mb-3">
+      <label for="username" className="form-label styleLabel">{{
+        'AbpAccount::UserNameOrEmailAddress' | abpLocalization
+      }}</label>
+      <input
+        className="form-control styleInput"
+        type="text"
+        id="username"
+        formControlName="username"
+        placeholder="Username"
+      />
+    </div>
+    <div className="mb-3">
+      <label for="password" className="form-label styleLabel">{{
+        'AbpAccount::Password' | abpLocalization
+      }}</label>
+      <input
+        className="form-control styleInput"
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder="Password"
+      />
+    </div>
+    <div className="row">
+      <div className="col">
+        <div className="form-check mb-2">
+          <input
+            className="mb-4 form-check-input"
+            type="checkbox"
+            id="login-input-remember-me"
+            formControlName="rememberMe"
+          />
+          <label className="form-check-label styleLabel" for="login-input-remember-me">
+            {{ 'AbpAccount::RememberMe' | abpLocalization }}
+          </label>
+        </div>
+      </div>
+      <div className="text-end col">
+        <a style="color: #42509e">{{ 'AbpAccount::ForgotPassword' | abpLocalization }}</a>
+      </div>
+    </div>
+    <button className="d-grid btn styleBtn" type="submit">
+      {{ 'AbpAccount::Login' | abpLocalization }}
+    </button>
+  </form>
+</section>
